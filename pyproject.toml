@@ -1,10 +1,10 @@
 [project]
 name = "adb-wifi-py"
-version = "0.2.0"
+version = "0.3.1"
 description = "A tool for pairing Android 11 and newer devices for wireless debugging directly through a terminal using QR code."
 dependencies = ["zeroconf>=0.136.2", "qrcode>=8.0", "colorama>=0.4.6"]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.9"
 
 [project.urls]
 Homepage = "https://github.com/Vazgen005/adb-wifi-py"

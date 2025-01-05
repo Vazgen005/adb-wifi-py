@@ -23,7 +23,6 @@ TYPE = "_adb-tls-pairing._tcp.local."
 NAME = "debug"
 PASSWORD = randint(100000, 999999)
 FORMAT_QR = "WIFI:T:ADB;S:{name};P:{password};;"
-CMD_SHOW = "qrencode -t UTF8 '{data}'"
 CMD_PAIR = "adb pair {ip}:{port} {code}"
 SUCCESS_MSG = "Successfully paired"
 
@@ -42,7 +41,7 @@ class ADBListener(ServiceListener):
     def pair(self, info: ServiceInfo) -> None:
         cmd = CMD_PAIR.format(ip=info.server, port=info.port, code=PASSWORD)
         logging.debug(f"Executing command: {cmd}")
-        process = subprocess.run(cmd, shell=True, capture_output=True)
+        process = subprocess.run(cmd, capture_output=True)
         stdout = process.stdout.decode()
         logging.debug(f"{stdout=}\n{process.stderr=}")
 

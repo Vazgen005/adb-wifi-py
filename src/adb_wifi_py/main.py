@@ -41,7 +41,7 @@ class ADBListener(ServiceListener):
     def pair(self, info: ServiceInfo) -> None:
         cmd = CMD_PAIR.format(ip=info.server, port=info.port, code=PASSWORD)
         logging.debug(f"Executing command: {cmd}")
-        process = subprocess.run(cmd, capture_output=True)
+        process = subprocess.run(cmd.split(" "), capture_output=True)
         stdout = process.stdout.decode()
         logging.debug(f"{stdout=}\n{process.stderr=}")
 
